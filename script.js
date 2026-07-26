@@ -109,8 +109,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // 4. Contact Form Submission Alert
     // Initialize EmailJS with your Public Key
     (function() {
-        // Replace with your actual Public Key from EmailJS (Account -> API Keys)
-        emailjs.init("YOUR_PUBLIC_KEY"); 
+        // Replace with your actual Public Key from EmailJS (Account -> API Keys) e.g., "YOUR_PUBLIC_KEY"
+        emailjs.init("G0fw0OzE93aYU7mwY"); // TODO: Replace with your actual EmailJS Public Key
     })();
 
     const contactForm = document.getElementById('contact-form');
@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
             submitBtn.disabled = true;
 
             // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your real IDs from EmailJS
-            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+            emailjs.sendForm('service_duzkr85', 'template_mmb64ii', this) // TODO: Replace with your actual EmailJS Service ID and Template ID
                 .then((response) => {
                     console.log('SUCCESS!', response.status, response.text);
                     alert('Thank you! Your message has been sent to Ganesh.');

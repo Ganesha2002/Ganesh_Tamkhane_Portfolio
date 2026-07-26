@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ganesh Tamkhane | Personal Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">Ganesh Tamkhane</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    </ul>
+  </nav>
+
+  <!-- Home / Hero Section -->
+  <section id="home" class="hero fade-in animated-bg">
+    <div class="hero-container">
+      <div class="hero-image">
+        <!-- Profile Picture -->
+        <img src="Gemini_Generated_Image_.png" alt="Ganesh Tamkhane Profile Picture" id="profile-img">
+      </div>
+      <div class="hero-content">
+        <h1>Hi, I'm <span class="highlight">Ganesh Tamkhane</span></h1>
+        <p class="subtitle">I am a <span id="typing-text" class="typed-text"></span><span class="cursor">&nbsp;</span></p>
+        <p class="description">Web Development Intern & MCA Candidate passionate about building modern web applications and AI-driven systems.</p>
+        <div class="cta-buttons">
+          <a href="#projects" class="btn primary-btn">View Projects</a>
+          <a href="resume.pdf" download class="btn secondary-btn">Download Resume</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section reveal">
+    <h2>About Me</h2>
+    <div class="about-container">
+      <p> 
+        I am an aspiring Software & Web Developer seeking challenging opportunities where I can fully use my skills for organizational success. With a strong background in Computer Science (B.Sc) and currently pursuing my Master of Computer Applications (MCA), I specialize in both frontend design and backend development.
+      </p>
+
+      <!-- Professional Experience -->
+      <div class="prof-experience">
+        <h3><i class="fa-solid fa-briefcase"></i> Professional Experience</h3>
+        <div class="exp-card">
+          <h4>Web Development Intern</h4> 
+          <p class="company">Geeks Kepler (Unstop)</p>
+          <p class="exp-desc">Designed and developed responsive, user-friendly web interfaces using HTML, CSS, and JavaScript while working on real-world web projects.</p>
+        </div>
+      </div>
+      
+      <h3>Education</h3>
+      <div class="education-grid">
+        <div class="edu-card">
+          <h4>MCA (2025–2027)</h4> 
+          <p>G.S. Mandal's Maharashtra Institute of Technology, CSN</p>
+          <p><strong>Appearing</strong></p>
+        </div>
+        <div class="edu-card">
+          <h4>B.Sc (2020–2025)</h4> 
+          <p>Swami Ramanand Teerth Marathwada University, Nanded</p>
+          <p><strong>CGPA: 7.54</strong></p>
+        </div>
+        <div class="edu-card">
+          <h4>HSC & SSC</h4> 
+          <p>Nutan Mahavidyalaya / Nutan Vidyalaya, Selu</p>
+          <p>HSC: 54.92% | SSC: 71.00%</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section reveal">
+    <h2>Skills & Expertise</h2>
+    <div class="skills-category">
+      <h3>Web Development</h3>
+      <div class="skills-grid">
+        <div class="skill-card"><i class="fa-brands fa-html5"></i> HTML5</div>
+        <div class="skill-card"><i class="fa-brands fa-css3-alt"></i> CSS3</div>
+        <div class="skill-card"><i class="fa-brands fa-js"></i> JavaScript</div>
+        <div class="skill-card"><i class="fa-brands fa-php"></i> PHP</div>
+      </div>
+    </div>
+
+    <div class="skills-category">
+      <h3>Languages & Databases</h3>
+      <div class="skills-grid">
+        <div class="skill-card"><i class="fa-solid fa-code"></i> C</div>
+        <div class="skill-card"><i class="fa-solid fa-code"></i> C++</div>
+        <div class="skill-card"><i class="fa-brands fa-java"></i> Core Java</div>
+        <div class="skill-card"><i class="fa-brands fa-python"></i> Python</div>
+        <div class="skill-card"><i class="fa-solid fa-database"></i> MySQL</div>
+        <div class="skill-card"><i class="fa-solid fa-database"></i> PostgreSQL</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section reveal">
+    <h2>Featured Projects</h2>
+    <div class="projects-grid">
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section reveal">
+    <h2>Get In Touch</h2>
+    <p class="section-subtitle">Feel free to reach out for collaborations or job opportunities!</p>
+
+    <div class="contact-container">
+      <div class="contact-info">
+        <p><i class="fa-solid fa-location-dot"></i> Vidya Nagar, Selu, Dist - Parbhani, 431503</p>
+        <p><i class="fa-solid fa-phone"></i> +91 8308069447</p>
+        <p><i class="fa-solid fa-envelope"></i> ganeshtamkhane70@gmail.com</p>
+        <p><i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/ganesh-tamkhane-597690215" target="_blank">View Profile</a></p>
+      </div>
+
+      <!-- Contact Form -->
+      <form class="contact-form" id="contact-form">
+        <input type="text" name="from_name" placeholder="Your Name" required />
+        <input type="email" name="from_email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit" class="btn primary-btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Ganesh Tamkhane. Built with HTML, CSS, & JS.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

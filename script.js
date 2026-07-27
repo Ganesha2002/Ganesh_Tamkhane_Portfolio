@@ -106,6 +106,21 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initial check to reveal elements in view on page load
     revealOnScroll();
 
+    // 5. Notification Card Logic
+    function showNotification(message, isSuccess = true) {
+        const notificationCard = document.getElementById('notification-card');
+        if (notificationCard) {
+            notificationCard.textContent = message;
+            notificationCard.style.borderLeftColor = isSuccess ? '#28a745' : '#dc3545'; // Green for success, Red for error
+            notificationCard.classList.add('show');
+
+            // Hide the notification after 5 seconds
+            setTimeout(() => {
+                notificationCard.classList.remove('show');
+            }, 5000);
+        }
+    }
+
     // 4. Contact Form Submission using EmailJS
     (function() {
         // Initialize EmailJS with your public key
@@ -141,12 +156,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     return emailjs.send(serviceID, autoReplyTemplateID, templateParams);
                 })
                 .then(() => {
-                    alert('Thank you! Your message has been sent and you will receive a confirmation email shortly.');
+                    showNotification('Thank you! Your message has been sent and you will receive a confirmation email shortly.');
                     contactForm.reset();
                 })
                 .catch((err) => {
                     console.error('EmailJS send failed:', err);
-                    alert('Something went wrong. Please check the console for details.');
+                    showNotification('Something went wrong. Please try again later.', false);
                 })
                 .finally(() => {
                     submitBtn.innerText = 'Send Message';

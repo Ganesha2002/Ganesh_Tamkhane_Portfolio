@@ -106,11 +106,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initial check to reveal elements in view on page load
     revealOnScroll();
 
-    // 4. Contact Form Submission Alert
-    // Initialize EmailJS with your Public Key
+    // 4. Contact Form Submission using EmailJS
     (function() {
-        // Replace with your actual Public Key from EmailJS (Account -> API Keys) e.g., "YOUR_PUBLIC_KEY"
-        emailjs.init("G0fw0OzE93aYU7mwY"); // TODO: Replace with your actual EmailJS Public Key
+        // Initialize EmailJS with your public key
+        emailjs.init('G0fw0OzE93aYU7mwY');
     })();
 
     const contactForm = document.getElementById('contact-form');
@@ -122,16 +121,32 @@ document.addEventListener("DOMContentLoaded", () => {
             submitBtn.innerText = 'Sending...';
             submitBtn.disabled = true;
 
-            // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your real IDs from EmailJS
-            emailjs.sendForm('service_duzkr85', 'template_mmb64ii', this) // TODO: Replace with your actual EmailJS Service ID and Template ID
-                .then((response) => {
-                    console.log('SUCCESS!', response.status, response.text);
-                    alert('Thank you! Your message has been sent to Ganesh.');
+            // --- Email to YOU (the owner) ---
+            // Replace with your EmailJS Service ID and Notification Template ID
+            const serviceID = 'service_duzkr85';
+            const notificationTemplateID = 'template_t2x4b35'; 
+
+            emailjs.sendForm(serviceID, notificationTemplateID, this)
+                .then(() => {
+                    // --- Auto-reply Email to the VISITOR ---
+                    // Replace with your Auto-Reply Template ID
+                    const autoReplyTemplateID = 'template_mmb64ii';
+
+                    // Gets the visitor's name and email from the form
+                    const templateParams = {
+                        from_name: this.from_name.value,
+                        from_email: this.from_email.value
+                    };
+
+                    return emailjs.send(serviceID, autoReplyTemplateID, templateParams);
+                })
+                .then(() => {
+                    alert('Thank you! Your message has been sent and you will receive a confirmation email shortly.');
                     contactForm.reset();
                 })
-                .catch((error) => {
-                    console.error('EmailJS Failed...', error);
-                    alert('Something went wrong while sending your message. Please check the browser console for details.');
+                .catch((err) => {
+                    console.error('EmailJS send failed:', err);
+                    alert('Something went wrong. Please check the console for details.');
                 })
                 .finally(() => {
                     submitBtn.innerText = 'Send Message';
